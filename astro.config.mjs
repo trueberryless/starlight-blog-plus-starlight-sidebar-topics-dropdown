@@ -42,35 +42,8 @@ export default defineConfig({
             icon: "information",
             items: ["reference/example"],
           },
-          {
-            label: "Blog",
-            link: "/blog/example",
-            icon: "open-book",
-            items: [
-              {
-                label: "Blog",
-                link: "/blog",
-              },
-              {
-                label: "Tag Example",
-                link: "/blog/tags/example",
-              },
-              {
-                label: "Author trueberryless",
-                link: "/blog/authors/trueberryless",
-              },
-              {
-                label: "Author hideoo",
-                link: "/blog/authors/hideoo",
-              },
-              "blog/example",
-            ],
-          },
         ]),
       ],
-      components: {
-        Sidebar: "./src/components/Sidebar.astro",
-      },
     }),
   ],
 });
