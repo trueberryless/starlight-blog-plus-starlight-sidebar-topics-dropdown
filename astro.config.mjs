@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightSidebarTopicsDropdown from "starlight-sidebar-topics-dropdown";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,8 +43,15 @@ export default defineConfig({
             icon: "information",
             items: ["reference/example"],
           },
+          {
+            id: "blog",
+            label: "Blog",
+            link: "/blog/example",
+            icon: "pencil",
+          },
         ]),
       ],
+      routeMiddleware: "./src/middleware.ts",
     }),
   ],
 });

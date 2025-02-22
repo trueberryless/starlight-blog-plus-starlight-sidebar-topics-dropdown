@@ -5,6 +5,7 @@ authors:
   - trueberryless
 tags:
   - Example
+topic: blog
 ---
 
 ## Hello
