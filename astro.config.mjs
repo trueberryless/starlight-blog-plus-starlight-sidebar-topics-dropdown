@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightSidebarTopicsDropdown from "starlight-sidebar-topics-dropdown";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,27 @@ export default defineConfig({
         github: "https://github.com/withastro/starlight",
       },
       plugins: [
+        starlightSidebarTopicsDropdown([
+          {
+            label: "Guides",
+            link: "/guides/example",
+            icon: "open-book",
+            items: ["guides/example"],
+          },
+          {
+            label: "Reference",
+            link: "/reference/example",
+            icon: "information",
+            items: ["reference/example"],
+          },
+          {
+            id: "blog",
+            label: "Blog",
+            link: "/blog",
+            icon: "pencil",
+            items: [],
+          },
+        ]),
         starlightBlog({
           authors: {
             trueberryless: {
@@ -29,48 +51,8 @@ export default defineConfig({
             },
           },
         }),
-        starlightSidebarTopicsDropdown([
-          {
-            label: "Guides",
-            link: "/guides/example",
-            icon: "open-book",
-            items: ["guides/example"],
-          },
-          {
-            label: "Reference",
-            link: "/reference/example",
-            icon: "information",
-            items: ["reference/example"],
-          },
-          {
-            label: "Blog",
-            link: "/blog/example",
-            icon: "open-book",
-            items: [
-              {
-                label: "Blog",
-                link: "/blog",
-              },
-              {
-                label: "Tag Example",
-                link: "/blog/tags/example",
-              },
-              {
-                label: "Author trueberryless",
-                link: "/blog/authors/trueberryless",
-              },
-              {
-                label: "Author hideoo",
-                link: "/blog/authors/hideoo",
-              },
-              "blog/example",
-            ],
-          },
-        ]),
       ],
-      components: {
-        Sidebar: "./src/components/Sidebar.astro",
-      },
+      routeMiddleware: "./src/middleware.ts",
     }),
   ],
 });
