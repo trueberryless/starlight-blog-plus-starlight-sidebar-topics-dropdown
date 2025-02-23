@@ -14,22 +14,6 @@ export default defineConfig({
         github: "https://github.com/withastro/starlight",
       },
       plugins: [
-        starlightBlog({
-          authors: {
-            trueberryless: {
-              name: "trueberryless",
-              title: "Completely lost",
-              picture: "https://avatars.githubusercontent.com/u/99918022?v=4",
-              url: "https://trueberryless.org",
-            },
-            hideoo: {
-              name: "HiDeoo",
-              title: "Starlight Aficionado",
-              picture: "https://avatars.githubusercontent.com/u/494699?s=200",
-              url: "https://hideoo.dev",
-            },
-          },
-        }),
         starlightSidebarTopicsDropdown([
           {
             label: "Guides",
@@ -46,10 +30,27 @@ export default defineConfig({
           {
             id: "blog",
             label: "Blog",
-            link: "/blog/example",
+            link: "/blog",
             icon: "pencil",
+            items: [],
           },
         ]),
+        starlightBlog({
+          authors: {
+            trueberryless: {
+              name: "trueberryless",
+              title: "Completely lost",
+              picture: "https://avatars.githubusercontent.com/u/99918022?v=4",
+              url: "https://trueberryless.org",
+            },
+            hideoo: {
+              name: "HiDeoo",
+              title: "Starlight Aficionado",
+              picture: "https://avatars.githubusercontent.com/u/494699?s=200",
+              url: "https://hideoo.dev",
+            },
+          },
+        }),
       ],
       routeMiddleware: "./src/middleware.ts",
     }),
