@@ -1,6 +1,7 @@
 import { defineRouteMiddleware } from "@astrojs/starlight/route-data";
 
 export const onRequest = defineRouteMiddleware(async (context, next) => {
+  await next();
   try {
     const { entry, id } = context.locals.starlightRoute;
 
@@ -8,5 +9,4 @@ export const onRequest = defineRouteMiddleware(async (context, next) => {
       entry.data.topic = "blog";
     }
   } catch (e) {}
-  return next();
 });
